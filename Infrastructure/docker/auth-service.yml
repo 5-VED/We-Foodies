@@ -1,0 +1,73 @@
+# version: '3.8'
+
+# services:
+#   auth-service:
+#     build:
+#       context: ../../Services/Auth-Service
+#       dockerfile: Dockerfile
+#     ports:
+#       - "3001:3001"
+#     environment:
+#       - NODE_ENV=development
+#       - PORT=3001
+#       - DB_HOST=postgres
+#       - DB_PORT=5432
+#       - DB_NAME=postgres
+#       - DB_USER=postgres
+#       - DB_PASSWORD=password
+#       - REDIS_HOST=redis
+#       - REDIS_PORT=6379
+#       - MEMORY_USAGE_TIMEOUT=60000
+#       - JWT_SECRET=${JWT_SECRET}
+#       - JWT_EXPIRES_IN=1d
+#     depends_on:
+#       - postgres
+#       - redis
+#     networks:
+#       - microservices-network
+#     healthcheck:
+#       test: ["CMD", "curl", "-f", "http://localhost:3001/health"]
+#       interval: 30s
+#       timeout: 10s
+#       retries: 3
+#       start_period: 40s
+
+#   postgres:
+#     image: postgres:13
+#     environment:
+#       - POSTGRES_USER=postgres
+#       - POSTGRES_PASSWORD=password
+#       - POSTGRES_DB=postgres
+#     ports:
+#       - "5432:5432"
+#     volumes:
+#       - postgres_data:/var/lib/postgresql/data
+#     networks:
+#       - microservices-network
+#     healthcheck:
+#       test: ["CMD-SHELL", "pg_isready -U postgres"]
+#       interval: 10s
+#       timeout: 5s
+#       retries: 5
+
+#   redis:
+#     image: redis:6-alpine
+#     ports:
+#       - "6379:6379"
+#     volumes:
+#       - redis_data:/data
+#     networks:
+#       - microservices-network
+#     healthcheck:
+#       test: ["CMD", "redis-cli", "ping"]
+#       interval: 10s
+#       timeout: 5s
+#       retries: 5
+
+# volumes:
+#   postgres_data:
+#   redis_data:
+
+# networks:
+#   microservices-network:
+#     driver: bridge
