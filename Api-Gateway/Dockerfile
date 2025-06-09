@@ -30,4 +30,4 @@ ENV NODE_ENV=development
 ENV PORT=3000
 
 # Start the application with development configuration
-CMD ["npm", "run", "start:dev"]
+CMD ["npm", "run", "start:dev"] 

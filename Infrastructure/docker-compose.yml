@@ -11,12 +11,8 @@ services:
     environment:
       - NODE_ENV=development
       - AUTH_SERVICE_URL=http://auth-service:3001
-      # - ORDER_SERVICE_URL=http://order-service:3002
-      # - NOTIFICATION_SERVICE_URL=http://notification-service:3003
     depends_on:
       - auth-service
-      # - order-service
-      # - notification-service
     networks:
       - swiggy-network
 
@@ -46,7 +42,7 @@ services:
     networks:
       - swiggy-network
     volumes:
-      - ../Data/Auth-Service:/app
+      - ../Services/Auth-Service:/app
       - /app/node_modules
     command: npm run start:dev
 
