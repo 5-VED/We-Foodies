@@ -13,11 +13,8 @@ RUN npm install
 # Copy the rest of the application code
 COPY . .
 
-# Create the Files directory needed for file operations
-RUN mkdir -p src/Files
-
 # Expose the port your app runs on (assuming a common Node.js port)
-EXPOSE 5000
+EXPOSE 3002
 
 # Command to run the application
 CMD ["node", "src/server.js"]

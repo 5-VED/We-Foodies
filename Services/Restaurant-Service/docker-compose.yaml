@@ -1,28 +1,27 @@
 services:
   app:    
-    container_name: Flick
+    container_name: restaurant-service
     build: .
     working_dir: /app
     volumes: 
       - .:/app
     ports:
-      - "5000:5000"
+      - "3002:3002"
     environment:
-      - MONGODB_URI=mongodb://mongodb:27017/flick
-      - JWT_SECRET=R4!w8@eYqP1^D3kZxL9#MvJcT0&BhUoF7GmNpQv2VzXsAbE
-      - IPINFO_TOKEN=0d343e3cb42de5
+      - MONGODB_URI=mongodb://localhost:27017/ez_restaurant
+      - JWT_SECRET=R4!w8@eYqP1^D3kZxL9#MvJcT0&BhUoF7GmNpQv2VzXsAbE      
     depends_on:
       - mongodb
     restart: unless-stopped
 
-  mongodb:
-    container_name: Flick_Database
-    image: mongo:latest
-    ports:
-      - "27017:27017"
-    volumes:
-      - mongodb_data:/data/db
-    restart: unless-stopped
+#   mongodb:
+#     container_name: Flick_Database
+#     image: mongo:latest
+#     ports:
+#       - "27017:27017"
+#     volumes:
+#       - mongodb_data:/data/db
+#     restart: unless-stopped
 
-volumes:
-  mongodb_data:
+# volumes:
+#   mongodb_data:

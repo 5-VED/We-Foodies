@@ -1,5 +1,5 @@
 # Use Node.js LTS version
-FROM node:18-alpine
+FROM node:20-alpine
 
 # Add non-root user for security
 # RUN addgroup -S appgroup && adduser -S appuser -G appgroup

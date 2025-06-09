@@ -42,8 +42,6 @@ const auth = ({ isTokenRequired = true, usersAllowed = [] }) => {
 
 			req.user = {
 				...decoded,
-				// ...user,
-				// id: (user?._id),
 				role: user?.role?.role,
 				email: user?.email,
 			};

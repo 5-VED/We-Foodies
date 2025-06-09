@@ -1,29 +1,53 @@
 version: '3.9'
 
 services:
-  postgresql:
-    image: postgres:latest
-    container_name: postgresql
-    restart: always
-    environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: password
-      POSTGRES_DB: postgres
+  app:    
+    container_name: auth-service
+    build: .
+    working_dir: /app
+    volumes: 
+      - .:/app
     ports:
-      - "5432:5432"
-    volumes:
-      - ./Auth-Service/pgdata:/var/lib/postgresql/data
+      - "3001:3001"
+    environment:
+      - PORT=3001
+      - NODE_ENV=development
+      - DB_HOST=localhost
+      - DB_PORT=5432
+      - DB_NAME=postgres
+      - DB_USER=postgres
+      - DB_PASSWORD=password
+      - MEMORY_USAGE_TIMEOUT=60000
+      - JWT_SECRET=Q3Z3VHN5aElVdnZGb...Vja0pBTExrYVc3Uk5K
+      - JWT_EXPIRES_IN=1d
+      - MONGODB_URI=mongodb://localhost:27017/ez_restaurant
+    restart: unless-stopped
 
 
-  pgadmin:
-    image: dpage/pgadmin4
-    container_name: pgadmin
-    restart: always
-    environment:
-      PGADMIN_DEFAULT_EMAIL: admin@admin.com
-      PGADMIN_DEFAULT_PASSWORD: admin
-    ports:
-      - "5050:80"
-    depends_on:
-      - postgresql
+
+#   postgresql:
+#     image: postgres:latest
+#     container_name: postgresql
+#     restart: always
+#     environment:
+#       POSTGRES_USER: postgres
+#       POSTGRES_PASSWORD: password
+#       POSTGRES_DB: postgres
+#     ports:
+#       - "5432:5432"
+#     volumes:
+#       - ./Data/Auth-Service/pgdata:/var/lib/postgresql/data
+
+
+#   pgadmin:
+#     image: dpage/pgadmin4
+#     container_name: pgadmin
+#     restart: always
+#     environment:
+#       PGADMIN_DEFAULT_EMAIL: admin@admin.com
+#       PGADMIN_DEFAULT_PASSWORD: admin
+#     ports:
+#       - "5050:80"
+#     depends_on:
+#       - postgresql
 

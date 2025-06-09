@@ -4,7 +4,7 @@ const options = {
   definition: {
     openapi: '3.0.0',
     info: {
-      title: 'Flick API Documentation',
+      title: 'Restaurant Service API Documentation',
       version: '1.0.0',
       description: 'API documentation for Flick application',
       license: {
@@ -16,10 +16,6 @@ const options = {
       {
         url: 'http://localhost:5000',
         description: 'Development server',
-      },
-      {
-        url: 'https://api.flick.com',
-        description: 'Production server',
       },
     ],
     components: {
@@ -62,7 +58,7 @@ const options = {
     },
     security: [
       {
-        bearerAuth: [],
+        BearerAuth: [],
       },
     ],
     tags: [

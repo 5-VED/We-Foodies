@@ -7,7 +7,7 @@ const axios = require('axios');
 // Configure CORS with specific options
 app.use(cors({
   origin: '*',
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization', 'Accept'],
   credentials: true
 }));
@@ -21,15 +21,6 @@ app.use((req, res, next) => {
 // Configure body parsing middleware
 app.use(express.json({ limit: '10mb' }))
 app.use(express.urlencoded({ extended: true, limit: '10mb' }))
-
-// Create Axios instance with default config
-const axiosInstance = axios.create({
-  timeout: 30000,
-  validateStatus: function (status) {
-    return status >= 200 && status < 500;
-  }
-});
-
 
 switch (true) {
   case !AUTH_SERVICE_URL:

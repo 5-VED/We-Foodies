@@ -57,29 +57,4 @@ module.exports = {
             })
         }
     },
-
-    // disableUser: async (req, res) => {
-    //     try {
-    //         const result = await UserModel.findByIdAndUpdate(req.body._id, { is_active: false }, { new: true });
-    //         if (!result) {
-    //             return res.status(400).json({
-    //                 success: false,
-    //                 message: "Error occured while disabling the user."
-    //             })
-    //         }
-
-    //         return res.status(200).json({
-    //             success: true,
-    //             message: "User Disabled",
-    //             data: result
-    //         })
-
-    //     } catch (error) {
-    //         return res.status(500).json({
-    //             success: false,
-    //             message: "Internal server error",
-    //             error
-    //         })
-    //     }
-    // }
 }
