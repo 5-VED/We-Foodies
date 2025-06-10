@@ -5,6 +5,7 @@ import { Transaction } from 'sequelize';
 export class UserRepository {
     // Query to create user
     static create(user: UserCreatinAttributes, transaction?: Transaction): Promise<UserAttributes> {
+        
         return UserModel.create(user, { transaction });
     }
 

@@ -25,13 +25,13 @@ const restaurantSchema = new Schema(
       enum: [FOOD_TYPE.NON_VEG, FOOD_TYPE.VEG],
       default: FOOD_TYPE.BOTH,
     },
-    cusines: [
-      {
-        type: Schema.Types.ObjectId,
-        required: true,
-      },
-    ],
-    restaurant_address: [
+    // cusines: [
+    //   {
+    //     type: Schema.Types.ObjectId,
+    //     required: true,
+    //   },
+    // ],
+    outlet: [
       {
         type: Schema.Types.ObjectId,
         ref: 'Outlet',
@@ -53,29 +53,20 @@ const restaurantSchema = new Schema(
       type: Schema.Types.String,
       required: true,
     },
-    account_nuber: {
-      type: Schema.Types.String,
-      required: true,
-    },
-    IFSC_no: {
-      type: Schema.Types.String,
-      required: true,
-    },
-    balance: {
-      type: Schema.Types.String,
-      required: true,
-    },
-    card_no: {
-      type: Schema.Types.String,
-      required: true,
-    },
-    CVC: {
-      type: Schema.Types.String,
-      required: true,
-    },
     slug: {
       type: Schema.Types.String,
-      required: true,
+    },
+    operating_hours: [
+      { day: Schema.Types.String, open: Schema.Types.String, close: Schema.Types.String }
+    ],
+    website: {
+      type: Schema.Types.String,
+      required: true
+    },
+    total_rating: {
+      type: Schema.Types.Number,
+      default: 0,
+      min: 0
     },
     ...baseFieldsSchema.obj,
   },

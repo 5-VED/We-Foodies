@@ -8,8 +8,12 @@ class RestaurantService {
   static async registerRestaurant(payload) {
     try {
         
+
+
+
     } catch (error) {
-      logger.error();
+      logger.error("SERVICE LAYER:->",error);
+
     }
   }
 }
