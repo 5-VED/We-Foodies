@@ -3,7 +3,7 @@ const cors = require('cors');
 const swaggerUi = require('swagger-ui-express');
 const swaggerSpec = require('./Config/swagger');
 const multer = require('multer');
-const { generalLimiter } = require("./Middlewares/rateLimiter.middleware");
+const { generalLimiter } = require('./Middlewares/rateLimiter.middleware');
 
 const errorHandler = require('./Middlewares/Error.middleware');
 
@@ -11,7 +11,6 @@ const app = express();
 
 // Apply rate limiters
 app.use(generalLimiter);
-
 
 // Middleware
 app.use(cors());

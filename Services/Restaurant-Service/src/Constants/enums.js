@@ -24,12 +24,12 @@ const enums = {
     VALIDATION_ERROR: 422,
     TOO_MANY_REQUESTS: 429,
   },
-  
-  FOOD_TYPE:{
-    VEG:"VEG",
-    NON_VEG:"NON_VEG",
-    JAIN:"JAIN",
-    BOTH:"BOTH"      
+
+  FOOD_TYPE: {
+    VEG: 'VEG',
+    NON_VEG: 'NON_VEG',
+    JAIN: 'JAIN',
+    BOTH: 'BOTH',
   },
 
   RMQ_ROUTING_KEYS: {
